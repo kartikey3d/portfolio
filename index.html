@@ -486,6 +486,19 @@
   }
   .ach-text { font-size: 0.88rem; color: var(--text2); line-height: 1.6; font-weight: 300; }
   .ach-text strong { color: var(--text); font-weight: 500; }
+  .ach-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(0,229,255,0.3);
+    padding-bottom: 1px;
+    transition: opacity var(--transition);
+    margin-left: 4px;
+  }
+  [data-theme="light"] .ach-link { border-bottom-color: rgba(0,119,204,0.3); }
+  .ach-link:hover { opacity: 0.7; }
 
   /* ─── BLOG PLACEHOLDER ─── */
   #blog {
@@ -614,7 +627,6 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <!-- Changed: removed ".dev" suffix, using cleaner monogram/identifier -->
   <a href="#hero" class="nav-logo">kartikey<span style="color:var(--text3);">_ml</span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
@@ -661,7 +673,6 @@
   <div class="hero-ctas">
     <a href="#projects" class="btn-primary">View My Work</a>
     <a href="#contact" class="btn-outline">Get In Touch</a>
-    <!-- Resume button now stands out with accent border -->
     <a href="resume.pdf" target="_blank" class="btn-resume">↓ Resume</a>
   </div>
   <div class="hero-scroll">scroll to explore</div>
@@ -697,12 +708,10 @@
         <div class="about-card-label">Focus Areas</div>
         <div class="about-card-val">Machine Learning · Data Analytics<br/>Business Intelligence · Automation</div>
       </div>
-      <!-- Changed: Updated "Currently Exploring" to ML/DS relevant content -->
       <div class="about-card">
         <div class="about-card-label">Currently Exploring</div>
         <div class="about-card-val">Deep Learning · NLP & Transformers<br/>MLOps · Kaggle Competitions</div>
       </div>
-      <!-- Changed: Location updated to Mandi, HP -->
       <div class="about-card">
         <div class="about-card-label">Location</div>
         <div class="about-card-val">Mandi, Himachal Pradesh, India</div>
@@ -751,7 +760,6 @@
           <span class="tech-pill">Gradient Boosting</span>
           <span class="tech-pill">Joblib</span>
         </div>
-        <!-- Updated: direct link to the specific repo -->
         <div class="project-links">
           <a href="https://github.com/kartikey3d/Customer-Churn-Prediction" target="_blank" class="project-link">→ GitHub</a>
         </div>
@@ -788,7 +796,6 @@
           <span class="tech-pill">Pandas</span>
           <span class="tech-pill">SQLAlchemy</span>
         </div>
-        <!-- Updated: direct link to the specific repo -->
         <div class="project-links">
           <a href="https://github.com/kartikey3d/customer-trends-data-analysis" target="_blank" class="project-link">→ GitHub</a>
         </div>
@@ -825,9 +832,9 @@
           <span class="tech-pill">Chart.js</span>
           <span class="tech-pill">HTML/CSS</span>
         </div>
-        <!-- No GitHub link — project not uploaded yet -->
+        <!-- Updated: GitHub link now live -->
         <div class="project-links">
-          <span style="font-family:var(--mono);font-size:0.72rem;color:var(--text3);letter-spacing:0.06em;">GitHub — coming soon</span>
+          <a href="https://github.com/kartikey3d/financial-analysis-workflow" target="_blank" class="project-link">→ GitHub</a>
         </div>
       </div>
     </div>
@@ -847,7 +854,6 @@
   <h2 class="section-title reveal">The toolkit.</h2>
   <p class="section-sub reveal">Languages, libraries, platforms — what I reach for and why.</p>
 
-  <!-- All skill items are now uniform — no accent highlighting on any individual items -->
   <div class="skills-outer">
     <div class="skill-group reveal">
       <div class="skill-group-label">Programming</div>
@@ -961,6 +967,11 @@
     <div class="exp-block">
       <div class="exp-block-title">Highlights & Achievements</div>
       <div class="ach-list">
+        <!-- Updated: Instagram link added -->
+        <div class="ach-item reveal">
+          <div class="ach-icon">[I]</div>
+          <div class="ach-text"><strong>Instagram — 70K+ Followers</strong> — Built and grew a storytelling page to 70K+ followers through original content.<a href="https://www.instagram.com/kartikeysnightmare/" target="_blank" class="ach-link">→ View page</a></div>
+        </div>
         <div class="ach-item reveal">
           <div class="ach-icon">[K]</div>
           <div class="ach-text"><strong>Kaggle Competitions</strong> — Multiple end-to-end ML pipelines built for real-world datasets. Sharpened evaluation, feature selection, and leaderboard strategy.</div>
@@ -1059,7 +1070,7 @@
 </footer>
 
 <script>
-  // ── THEME TOGGLE — dark is default, localStorage persists choice ──
+  // ── THEME TOGGLE ──
   const html = document.documentElement;
   const btn = document.getElementById('themeToggle');
   const btnM = document.getElementById('themeToggleMobile');
@@ -1070,7 +1081,6 @@
     btnM.textContent = label;
     localStorage.setItem('theme', t);
   }
-  // Default to dark unless user explicitly chose something else
   const saved = localStorage.getItem('theme') || 'dark';
   setTheme(saved);
   btn.addEventListener('click', () => setTheme(html.dataset.theme === 'dark' ? 'light' : 'dark'));
@@ -1084,7 +1094,6 @@
   });
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // show mobile toggle only on small screens
   function checkMobile() {
     btnM.style.display = window.innerWidth <= 768 ? 'block' : 'none';
   }
